@@ -1,0 +1,274 @@
+<html>
+
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/stylesheet.css">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=yes"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+</head>
+<header>
+    <!-- Links (sit on top) -->
+    <div class="top-menu">
+        <div class="menu-item">
+            <a href="Home.html">Home</a>
+        </div>
+        <div class="menu-item">
+            <a href="aboutus.html">About Us</a>
+        </div>
+        <div class="menu-item">
+            <a href="profile.html">Services</a>
+        </div>
+        <div class="menu-item">
+            <a href="index.html">Districts</a>
+        </div>
+        <div class="menu-item">
+            <a href="properties.html">Properties</a>
+        </div>
+        <div class="menu-item">
+            <a href="contactus.html">Contact Us</a>
+        </div>
+        <div class="menu-item">
+            <a href="register.html">Register</a>
+        </div>
+        <div class="menu-item">
+            <a href="addpropirty.html">Add Your Unit</a>
+        </div>
+    </div>
+</header>
+
+<!-- Header with image -->
+<div id="bgimg">
+    <img src="img/1.jpg" style="width:100%; max-width:1500px; height: 500px; ">
+
+    <h3 class="first-txt">The Company</h3>
+</div>
+
+<body>
+    <!-- Add a background color and large text to the whole page -->
+    <center>
+        <br>
+        <div class="searchprop">
+            <br>
+            <h2><b>Search Properties</b></h2>
+            <img src="img/header_center.webp" alt="..">
+            <br><br>
+            <div class="row">
+                <div>
+                    <div class="input-field">
+                        <label for="from">Location:</label>
+                        <input type="text" id="from-place" placeholder="Any" />
+                    </div>
+                </div><br>
+                <div>
+                    <section>
+                        <label for="class">Property Status:</label>
+                        <select>
+                            <option value="" disabled selected>Any</option>
+                            <option value="1">Rent</option>
+                            <option value="2">Sale</option>
+                        </select>
+                        <label for="class">Property Type:</label>
+                        <select>
+                            <option value="" disabled selected>Any</option>
+                            <option value="1">Building</option>
+                            <option value="2">Office</option>
+                        </select>
+                    </section>
+                </div><br>
+                
+                <div>
+                    <div>
+                        <section>
+                            <label for="class">Price:</label>
+
+                            <select>
+                                <option value="" disabled selected>Any</option>
+                                <option value="1">High</option>
+                                <option value="2">Low</option>
+                                <option value="3">Average</option>
+                            </select>
+
+                            <label for="class">Bedrooms:</label>
+
+                            <select>
+                                <option value="" disabled selected>Any</option>
+                                <option value="1">2</option>
+                                <option value="2">+3</option>
+                            </select>
+
+                            <label for="class">Bathrooms:</label>
+
+                            <select>
+                                <option value="" disabled selected>Any</option>
+                                <option value="1">2</option>
+                                <option value="2">+3</option>
+                            </select>
+
+                        </section>
+                    </div><br>
+
+                    <div>
+                        <section>
+                            <label for="class">Area:</label>
+
+                            <select>
+                                <option value="" disabled selected>Any</option>
+                                <option value="1">New Cairo</option>
+                                <option value="2">Nasr City</option>
+                                <option value="3">October</option>
+                            </select>
+
+                            <label for="class">Parking spots:</label>
+                            <select>
+                                <option value="" disabled selected>Any</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button class="button button1" type="button"><b>Search</b></button>
+        </div>
+    </center>
+    <br>
+    <div class="containerkbeer">
+        <h1 class="font">Our Partners</h1>
+        <img src="img/header_center.webp" alt="..">
+    </div>
+    <br>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="img\al-ahly-for-real-estate-development-sabbour-1667464924.webp"
+                style="width:100%; height:250px;">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="img\al-futtaim-group-1667464927.webp" style="width:100%;height:250px;">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="img\city-edge-1667464931.webp" style="width:100%;height:250px;">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="img\emaar-misr-1667464921.webp" style="width:100%;height:250px;">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="img\hassan-allam-1667464860.webp" style="width:100%;height:250px;">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="img\hyde-park-1667464922.webp" style="width:100%;height:250px;">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+    <br>
+</body>
+
+<!-- Start Footer Area -->
+<footer class="footer-area pt-100">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-footer-widget">
+                    <h3>Contact Us</h3>
+
+                    <div><a href="tel:0023567890" class="footer-a">Phone: 0123456789</a></div>
+
+                    <div> <a href="info@realestate.com" class="footer-a">Email : info@realestate.com</a></div>
+
+                    <div> <a href="New Cairo" class="footer-a">Address : New Cairo</a></div>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-footer-widget">
+                    <h3>Our Company</h3>
+                    <div class="footer-a"> Text about the company </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-footer-widget">
+                    <h3>Follow Us</h3>
+
+                    <ul class="widget-social">
+                        <li>
+                            <a href="https://www.facebook.com/" class="footer-a">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/?lang=en" class="footer-a">Twitter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/" class="footer-a">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Footer Area -->
+</footer>
+
+</html>
