@@ -1,0 +1,68 @@
+<html>
+
+<head>
+	<!-- <link rel="stylesheet" href="/css/chatadmin.css"> -->
+	<link rel="stylesheet" href="/CSS/styleAdmin.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+<%- include("../partials/localization") %>
+	<header class="header">
+		<div class="logo">
+			<a href="#">The Company</a>
+			<title>Chats</title>
+			<!-- <div class="search_box">
+				
+				<input type="text" placeholder="Search">
+				<i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+			</div> -->
+		</div>
+
+		<div class="header-icons">
+			<div class="account">
+
+				<h4>Admin</h4>
+			</div>
+		</div>
+	</header>
+
+	<body>
+		<div class="container">
+			<%- include("../partials/adminnavbar") %>
+				<main class="content">
+
+					<div class="container p-0">
+
+						<div>
+							<h1>Chats</h1>
+
+						</div>
+
+						<div class="card">
+							<div class="row g-1">
+								<div class="col-12 col-lg-5 col-xl-3 border-right">
+									<% for(var i=0;i<Users.length;i++) { %>
+										<a href="/admin/getSingleUserChat/<%= Users[i]._id%>"
+											class="list-group-item list-group-item-action border-0">
+
+											<div class="d-flex align-items-start">
+
+												<div class="flex-grow-1 ml-3">
+
+													<%= Users[i].username%>
+
+												</div>
+											</div>
+										</a>
+										<% } %>
+											<hr class="d-block d-lg-none mt-1 mb-0">
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</main>
+		</div>
+	</body>
+
+</html>

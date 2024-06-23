@@ -1,0 +1,77 @@
+<title>Profile</title>
+</head>
+<meta charset="UTF-8">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=yes"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/CSS/profilestyle.css">
+</head>
+
+<body>
+    <%- include("../partials/localization") %>
+        <div class="member-container">
+            <a href="/">
+                <div class="arr back">
+                    <div></div>
+                </div>
+            </a>
+            <img src="/img/<%=User.photo%>" alt="photo">
+            <h1>
+                <%=User.username%>
+            </h1>
+            <form method="get" action="/user/edituser/<%=User.id%>">
+                <input type="submit" value="Edit profile" class="button">
+            </form>
+        </div>
+        <h2 class="m">Wish List</h2>
+        <div class="favorite">
+            <%console.log(wish);%>
+                <% if(wish){%>
+                    <% wish.forEach((w)=>{%>
+                        <div class="house">
+                            <a href="/user/propirty/<%=w.id%>" class="imm">
+                                <div class="fade"></div>
+                                <img src="/img/<%=w.Image%>" alt="can't load image">
+                                <h2 class="price">
+                                    <%=w.value%> EGP
+                                </h2>
+                                <p class="sale">
+                                    <%=w.servicetype%>
+                                </p>
+                                <div class="forsalebar"></div>
+                            </a>
+                            <div class="title">
+                                <h3>
+                                    <%=w.name%>
+                                </h3>
+                                <p class="p"><i class="fa fa-map-marker icon">
+                                        <%=w.district%>
+                                    </i></p>
+                            </div>
+                            <table class="details ">
+                                <tr>
+                                    <td class="Center">
+                                        <i class="fa fa-bed"></i>
+                                        <%=w.bedrooms%> Bedrooms
+                                    </td>
+                                    <td class="Center">
+                                        <i class="fa fa-tint"></i>
+                                        <%=w.bathrooms%> Baths
+                                    </td>
+                                    <td class="Center">
+                                        <i class="fa fa-expand"></i>
+                                        <%=w.area%>m
+                                            <sup>2</sup>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <%})%>
+                            <%} else{%>
+                                <p>you have nothing in the wishlist</p>
+                                <%}%>
+        </div>
+</body>
+
+</html>

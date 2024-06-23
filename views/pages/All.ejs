@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties</title>
+    <link rel="stylesheet" href="/CSS/properties.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/CSS/pagination.css">
+</head>
+
+<%- include("../partials/header") %>
+    <%- include("../partials/localization") %>
+
+        <body>
+            <div class="containerkbeer">
+                <div class="pr">
+                    <h1 class="font">Recently Added Properties</h1>
+                    <img src="/img/header_center.webp" alt="..">
+                    <p class="info">Recently Added Properties at Blue Rock Real Estate Marketing & Investment Egypt</p>
+                    <br>
+                </div>
+
+                <% var start=currentValue * 6 %>
+                    <div class="container">
+                        <% if (Propirty.length> 0) { %>
+                            <% for (var i=start; i < Propirty.length; i++) { %>
+                                <div class="house">
+                                    <a href="/user/propirty/<%=Propirty[i].id%>" class="imm">
+                                        <div class="fade"></div>
+                                        <img src="/img/<%=Propirty[i].Image%>" alt="can't load image">
+                                        <h2 class="price">
+                                            <%=Propirty[i].value%> EGP
+                                        </h2>
+                                        <p class="sale">
+                                            <%=Propirty[i].servicetype%>
+                                        </p>
+                                        <div class="forsalebar"></div>
+                                    </a>
+                                    <div class="title">
+                                        <h3>
+                                            <%=Propirty[i].name%>
+                                        </h3>
+                                        <p class="p"><i class="fa fa-map-marker icon">
+                                                <%=Propirty[i].district%>
+                                            </i></p>
+                                    </div>
+                                    <table class="details">
+                                        <tr>
+                                            <td class="Center">
+                                                <i class="fa fa-bed"></i>
+                                                <%=Propirty[i].bedrooms%> Bedrooms
+                                            </td>
+                                            <td class="Center">
+                                                <i class="fa fa-tint"></i>
+                                                <%=Propirty[i].bathrooms%> Baths
+                                            </td>
+                                            <td class="Center">
+                                                <i class="fa fa-expand"></i>
+                                                <%=Propirty[i].area%>m<sup>2</sup>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <% } %>
+                                    <% } else { %>
+                                        <p>There are no properties to display...</p>
+                                        <% } %>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="btn1" onclick="backBtn()"> <img src="/img/arrowofpagination.png"> prev</button>
+                        <ul>
+                            <% for (var i=0; i < count; i++) { %>
+                                <li class="link <%= i === currentValue ? 'active' : '' %>" value="<%= i %>"
+                                    onclick="activeLink(event)">
+                                    <%= i + 1 %>
+                                </li>
+                                <% } %>
+                        </ul>
+                        <button class="btn2" onclick="nextBtn()"> <img src="/img/arrowofpagination.png">next</button>
+                    </div>
+            </div>
+
+            <script>
+                let currentValue = 0;
+                let link = document.getElementsByClassName("link");
+
+                function activeLink(event) {
+                    for (l of link) {
+                        l.classList.remove("active");
+                    }
+                    event.target.classList.add("active");
+                    currentValue = parseInt(event.target.value);
+                    showProperties();
+                }
+
+                function backBtn() {
+                    if (currentValue > 0) {
+                        currentValue--;
+                        for (l of link) {
+                            l.classList.remove("active");
+                        }
+                        link[currentValue].classList.add("active");
+                        showProperties();
+                    }
+                }
+
+                function nextBtn() {
+                    if (currentValue < link.length - 1) {
+                        currentValue++;
+                        for (l of link) {
+                            l.classList.remove("active");
+                        }
+                        link[currentValue].classList.add("active");
+                        showProperties();
+                    }
+                }
+
+                function showProperties() {
+                    let properties = document.getElementsByClassName("house");
+                    for (let i = 0; i < properties.length; i++) {
+                        if (i >= currentValue * 6 && i < (currentValue + 1) * 6) {
+                            properties[i].style.display = "block";
+                        } else {
+                            properties[i].style.display = "none";
+                        }
+                    }
+                }
+
+                showProperties();
+            </script>
+
+            <%- include("../partials/footer") %>
+        </body>
+
+</html>

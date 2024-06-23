@@ -1,0 +1,66 @@
+<head>
+  <title>Home Page</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/stylesheet.css">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=yes"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    //the variable tawk_API initialized using shorthand method using || opertator
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6481029694cf5d49dc5c69d9/1h2bv48eu';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+</head>
+
+
+
+
+<header>
+  <!-- Links (sit on top) -->
+  <div class="top-menu">
+    <div class="menu-item">
+      <a href="/">Home</a>
+    </div>
+    <div class="menu-item">
+      <a href="/aboutus">About Us</a>
+    </div>
+    <div class="menu-item">
+      <a href="/user/distrect">Districts</a>
+    </div>
+    <div class="menu-item">
+      <a href="/user/propirty">Properties</a>
+    </div>
+    <div class="menu-item">
+      <a href="/contactus">Contact Us</a>
+    </div>
+    <%if(user==""){%>
+      <div class="menu-item">
+        <a href="/user/register">Register</a>
+      </div>
+      <%} else{%>
+        <div class="menu-item">
+          <a href="/user/<%=user._id%>">view profile</a>
+        </div>
+        <div class="menu-item">
+          <a href="/user/logout">logout</a>
+        </div>
+        <% }%>
+          <!-- // -->
+          <div class="menu-item">
+            <%- include("../partials/search") %>
+          </div>
+          <!-- // -->
+
+
+</header>

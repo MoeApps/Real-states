@@ -1,0 +1,97 @@
+body{
+    background-color: #ebf1f5;
+    }
+    *:focus{
+        outline:none;
+    }
+    .Box{
+        box-sizing:border-box;
+        width:360px;
+        height:600px;
+        border:2px solid white;
+        box-shadow:5px 10px 18px #888888;
+            border-radius:5px ;
+          background-color: #f2f2f2;
+          margin-top:50px; 
+          overflow:hidden; 
+    }
+    .Profile{
+        box-sizing: border-box;
+        width:149px;
+        height:149px;
+        border-radius: 50% ;
+        margin:0;
+        border:5px solid whitesmoke;
+        padding:3px;
+        background-color:white;
+    }
+    .input input{
+        display:block;
+        box-sizing:border-box;
+        background:none;
+        color: #3498db;
+        margin-bottom:30px;
+        padding:4px;
+        width:220px;
+        height:32px;
+        border:none;
+        border-bottom:1px solid #0082e6;
+        font-family:'roboto',sans-serif;
+        font-weight:400;
+        font-size:15px;
+        transition:0.2s ease;
+        margin-top:25px;
+    }
+    .input:focus{ 
+    border-bottom:2px solid #3498db;
+    border-bottom-right-radius:20px;
+    color:#3498db;
+    transition:0.2 ease;
+    }
+    button{
+        border:1px solid #3498db;
+        background-color:white;
+        color:#3498db;
+        height:30px;
+        width:100px;
+        border-radius:10px;
+        margin:20px;
+        transition:all 0.3s;
+    }
+    button:hover{
+        transform:scale(1.1); 
+    }
+    input[type="file"]{
+        display:none;
+    }
+    .photo{
+        box-sizing:border-box;
+        font-size:20px;
+        background-color:rgb(68, 79, 241);
+        color:white;
+        border:1px solid #3498db;
+        padding:2px 15px;
+        transition:all 0.3s;
+        margin-left: -20%;
+        margin-bottom: -10%;
+        border-radius: 50%;
+        width: 40px;
+    }
+    label:hover{
+        background-color:#3498db ;
+        color:black;
+    }
+    .pen{
+        height: 20px;
+        width: 20px;
+    }
+    .error-box {
+        width: 380px;
+        padding: 5px;
+        border-radius: 8px;
+        border: solid 5px;
+        background-color: #F15A59;
+        border-color: red;
+        color: white;
+    }
+    

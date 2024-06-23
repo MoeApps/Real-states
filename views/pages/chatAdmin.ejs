@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="/CSS/chat.css">
+    <script defer src="/js/chat.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <!-- specific user Chat box  (hidden by default) -->
+    <div class="chat" id="myForm" style="display:block;">
+        <div class="containerz">
+            <div class="headerz">
+                <h1>WebChat</h1>
+            </div>
+
+            <div class="bodyz">
+                <div id="chatBody">
+
+                    <% for(var i=0;i<Messages.length;i++) { %>
+
+                        <%if(Messages[i].type=="user"){%>
+                            <p class="messagez ">
+                                <%= Messages[i].message.content %>
+                            </p>
+
+                            <%}else{%>
+                                <p class="messagez user_message">
+                                    <%= Messages[i].message.content %>
+                                </p>
+
+                                <%}%>
+                                    <% } %>
+                </div>
+            </div>
+            <div class="footerz">
+
+
+                <form action="/admin/sendMsgFromAdmin/<%= Messages[0].message.sender%>" method="post">
+
+
+                    <container>
+                        <input class="inputz" type="text" name="content" id="chatInput">
+                        <button type="submit">
+                            <img class="sendicon" src="/img/download.png" alt="send icon" onclick="sendMsg('admin')">
+                        </button>
+                    </container>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

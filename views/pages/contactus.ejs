@@ -1,0 +1,137 @@
+<Doctype html>
+    <html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Contact us
+        </title>
+
+        <!-- REL attribute is used to define the relationship between the linked file and the HTML document -->
+        <!-- rel=relation,href stands for hypertext reference -->
+        <link rel="stylesheet" href="/CSS/contactus.css">
+        <script defer src="js/contactus.js">
+        </script>
+    </head>
+
+    <body>
+        <%- include("../partials/header") %>
+            <%- include("../partials/localization") %>
+
+                <form action="/user/contact" method="post" class="contact-form">
+                    <div class="container1">
+                        <h1 align="middle">Contact Us</h1>
+                        <p> We are here, Just write us a message</p>
+                        <div class="contact">
+
+
+                            <div class="cleft">
+                                <h3> Tell us what you need</h3>
+                                <div id="notv"> </div>
+                                <form name="contactForm" onsubmit="return validate()">
+                                    <!--action method="post" onsubmit="return validate('this')" -->
+                                    <div class="input-row">
+
+                                        <div class="input-group">
+                                            <label for="cname">Name </label>
+                                            <input type="text" name="cname" id="cname" placeholder="Enter your name">
+                                            <!-- required is not necessary 34an na 3amla validation bel js -->
+                                            <label id="label1" style="color: red;visibility:hidden">This field is
+                                                required!</label>
+
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="cphone"> Phone number </label>
+                                            <input type="tel" name="cphone" id="cphone"
+                                                placeholder="Enter your cell phone number">
+                                            <label id="label2" style="color: red;visibility:hidden">This field is
+                                                required!</label>
+                                            <label id="label6" style="color: red;visibility:hidden">Phone number must be
+                                                11
+                                                characters!</label>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <div class="input-group">
+                                            <label for="cmail">E-mail</label>
+                                            <input type="email" placeholder="Enter your E-mail" name="cmail" id="cmail">
+                                            <label id="label3" style="color: red;visibility:hidden">This field is
+                                                required!</label>
+
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="cloc">Location</label>
+                                            <input type="text" placeholder="Enter your location" name="cloc" id="cloc">
+                                        </div>
+                                    </div>
+                                    <label for="cmes">Message</label>
+                                    <input id="cmes" placeholder="Leave your message" style="height:100px"
+                                        rows="10"></input>
+                                    <label id="label5" style="color: red;visibility:hidden">This field is
+                                        required!</label>
+
+                                    <button type="submit"> SEND </button>
+
+
+                                </form>
+                            </div>
+
+                            <div class="cright">
+                                <h3> Reach Us on</h3>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            E-mail
+                                        </td>
+                                        <td> emailaccount@ex.com </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td> Hotline </td>
+                                        <td>
+                                            19999
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Address </td>
+                                        <td>
+                                            Cairo, Egypt
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+                <!-- The alt attribute should reflect the image content, so users who cannot see the image get an understanding of what the image contains: -->
+                <!-- <img src="real-estate-photography.jpg"  class="houseimg" alt="house photo presenting real estate">  -->
+    </body>
+    <!-- Start Footer Area -->
+    <%- include("../partials/footer") %>
+
+        <!-- End Footer Area -->
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </html>

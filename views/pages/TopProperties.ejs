@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/CSS/styleAdmin.css" />
+  <!-- <link rel="stylesheet" href="/CSS/properties.css"> -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <a href="#">The Company</a>
+      <div class="search_box">
+        <input type="text" placeholder="Search">
+        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+
+    <div class="header-icons">
+      <div class="account">
+        <!-- <img src="./mostafa.jpg" alt=" image "> -->
+        <h4>Admin</h4>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <%- include("../partials/localization") %>
+      <%- include("../partials/adminnavbar") %>
+        <div class="main-body">
+
+          <h2>Top Properties</h2>
+          <div class="promo_card">
+            <h1>Here you can view the Top Properties</h1>
+          </div>
+          <div class="history_lists">
+            <div class="list1">
+              <div class="property-container">
+                <% Propirty.sort((a, b)=> b.value - a.value); %>
+                  <% for(var i=0; i<Propirty.length; i++) { %>
+                    <div class="property-card">
+                      <a href="#" class="imm">
+                        <div class="fade"></div>
+                        <a href="/user/propirty/<%=Propirty[i].id%>">
+                        <img src="/img/<%=Propirty[i].Image%>" alt="can't load image">
+                      </a>
+                        <h2 class="price">
+                          <%=Propirty[i].name%>
+                        </h2>
+                        <div class="forsalebar"></div>
+                        <div class="title">
+                          <h3><i class="fa fa-map-marker icon"></i>
+                            <%=Propirty[i].district%>
+                          </h3>
+                          <p class="p">
+                            <%=Propirty[i].value%> EGP
+                          </p>
+                          <p>
+                            <i class="fa fa-bed"></i>
+                            <%=Propirty[i].bedrooms%> Bedrooms
+                              <i class="fa fa-tint"></i>
+                              <%=Propirty[i].bathrooms%> Baths
+                                <i class="fa fa-expand"></i>
+                                <%=Propirty[i].area%> m<sup>2</sup>
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                    <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</body>
+
+</html>

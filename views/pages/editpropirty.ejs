@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <link rel="stylesheet" href="/CSS/addpropertystyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script defer src="/js/addpropertyform.js"></script>
+</head>
+
+<body>
+    <%- include("../partials/localization") %>
+        <div class="container1">
+            <div class="title">
+                <h1 class="name">edit <%=prop.name%> Property With Us.</h1>
+                <div class="design">.</div>
+                <br>
+                <h3>
+                    <p class="mm">We would be happy to help you sell your property, please fill in the requested form
+                        below.
+                    </p>
+                </h3>
+                <br>
+            </div>
+            <form id="form" method="post" action="/admin/editproperty/<%=prop.id%>" enctype="multipart/form-data">
+                <% if (errors && errors.length> 0) { %>
+                    <div class="error-box">
+                        <% for (let i=0; i < errors.length; i++) { %>
+                            <p>
+                                <%= errors[i].msg %>
+                            </p>
+                            <% } %>
+                    </div>
+                    <% } %>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="name">Name&nbsp;</label>
+                                        <br>
+                                        <input class="inn" id="name" value="<%=prop.name%>" type="text" name="name"
+                                            required>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="mobile-number">Mobile Number &nbsp;</label>
+                                        <br>
+                                        <input class="inn" id="mobile_number" value="<%=prop.mobilenumber%>"
+                                            type="number" name="mobile_number" required>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <label for="other-number">Other Mobile Number</label>
+                                    <br>
+                                    <input class="inn" type="number" value="<%=prop.mobilenumber2%>"
+                                        name="other_number">
+                                </td>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="u_bed">Bedrooms Number &nbsp;</label>
+                                        <br>
+                                        <input class="inn" type="number" value="<%=prop.bedrooms%>" id="u_bed"
+                                            name="u_bed" required>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="servise">Service Type &nbsp;</label>
+                                        <br>
+                                        <select class="inn" value="<%=prop.servicetype%>" name="servise" required>
+                                            <option value="">NONE</option>
+                                            <option value="Rent">Rent</option>
+                                            <option value="Sell">Sell</option>
+                                        </select>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="type">Unit Type &nbsp;</label>
+                                        <br>
+                                        <select class="inn" value="<%=prop.unittype%>" name="type" required>
+                                            <option value="">NONE</option>
+                                            <option value="Appartment">Appartment</option>
+                                            <option value="Villa">Villa</option>
+                                            <option value="Office">Office</option>
+                                        </select>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="district">District &nbsp;</label>
+                                        <br>
+                                        <select class="inn" value="<%=prop.district%>" name="district" required>
+                                            <option value="">NONE</option>
+                                            <option value="Maadi">Maadi</option>
+                                            <option value="6th-of-october">6th-of-october</option>
+                                            <option value="Helwan">Helwan</option>
+                                            <option value="new-cairo">New cairo</option>
+                                            <option value="nasr-city">Nasr city</option>
+                                            <option value="giza">Giza</option>
+                                            <option value="el-nozha">El nozha</option>
+                                        </select>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <label for="f_type">Furniture Type &nbsp;</label>
+                                    <br>
+                                    <select class="inn" value="<%=prop.furniture%>" name="f_type" required>
+                                        <option value="">NONE</option>
+                                        <option value="Modern">Modern</option>
+                                        <option value="traditional">traditional</option>
+                                        <option value="contemporary">contemporary</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="garage">Number of Garages &nbsp;</label>
+                                        <br>
+                                        <input class="inn" type="number" value="<%=prop.garages%>" id="garage"
+                                            name="garage" required>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="area">Area &nbsp;</label>
+                                        <br>
+                                        <input class="inn" type="number" value="<%=prop.area%>" id="area" name="area"
+                                            required>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="value">Unit Value &nbsp;</label>
+                                        <br>
+                                        <input class="inn" id="value" value="<%=prop.value%>" type="number" name="value"
+                                            required>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="u_nom">Unit Number &nbsp;</label>
+                                        <br>
+                                        <input class="inn" id="u_nom" value="<%=prop.unumber%>" type="number"
+                                            name="u_nom" required>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="u_path">Bathrooms Number &nbsp;</label>
+                                        <br>
+                                        <input class="inn" type="number" value="<%=prop.bathrooms%>" id="u_path"
+                                            name="u_path" required>
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-control">
+                                        <label for="img">Appartment image &nbsp;</label>
+                                        <br>
+                                        <input class="inn" type="file" src="/img/<%=prop.Image%>" id="img" name="img">
+                                        <div class="error"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" colspan="2">
+                                    <label for="details">Details &nbsp;</label>
+                                    <br>
+                                    <textarea name="details" id="details" value="<%=prop.details%>"
+                                        class="area"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <button type="submit" class="add" id="submit">edit</button>
+            </form>
+        </div>
+</body>
+
+</html>

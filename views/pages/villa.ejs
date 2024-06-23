@@ -1,0 +1,115 @@
+<!--deh el bteegy lama bndoos ala ay unit-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doblex</title>
+    <link rel="stylesheet" href="/css/villapage.css">
+    <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
+    <script type='text/javascript'>
+        var myIndex = 0;
+        function slider() {
+            var images = document.getElementsByClassName("mySlides");
+            for (var i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+            }
+
+            if (myIndex > images.length - 1) {
+                myIndex = 0;
+            }
+            images[myIndex].style.display = "block";
+            myIndex++;
+            setTimeout(slider, 2000); // Change image every 2 seconds
+        }
+        setTimeout(slider, 1000);
+    </script>
+</head>
+
+<body>
+    <%- include("../partials/header") %>
+        <%- include("../partials/localization") %>
+            <%- include("../partials/chat") %>
+                <div class="container1">
+                    <div class="title">
+                        <div class="name">
+                            <h1>
+                                <%= Propirty.name %>
+                            </h1>
+                            <p><i class="fa fa-map-marker icon"></i>
+                                <%= Propirty.district %>
+                            </p>
+
+                        </div>
+                        <div class="price">
+                            <%= Propirty.value %> EGP
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <p class="featured">Featured</p>
+                        <p class="sale">
+                            <%= Propirty.servicetype %>
+                        </p>
+                        <p class="type">Property type: <%= Propirty.unittype %>
+                        </p>
+                    </div>
+                    <table class="details">
+                        <tr>
+                            <td>
+                                <i class="fa fa-bed"></i>
+                                <span>
+                                    <%= Propirty.bedrooms %>
+                                </span>
+                                Bedrooms
+                            </td>
+                            <td>
+                                <i class="fa fa-tint"></i>
+                                <span>
+                                    <%= Propirty.bathrooms %>
+                                </span>
+                                Baths
+                            </td>
+                            <td>
+                                <i class="fa fa-expand"></i>
+                                <span>
+                                    <%= Propirty.area %>
+                                </span>
+                                M.
+                                <sub>2</sub>
+                            </td>
+                            <td>
+                                <i class="fa fa-car"></i>
+                                <span>
+                                    <%= Propirty.garages %>
+                                </span>
+                                Garage
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="photo">
+                        <img class="mySlides" src="/img/<%= Propirty.Image %>" style="width:100%">
+                    </div>
+                </div>
+                <form method="post" action="/user/addtowishlist/<%=Propirty.id%>">
+                    <% if(v==1){%>
+                        <button id="like" class="btn"><img class="like" src="/img/emptyheart.png"></button>
+                        <%} else {%>
+                            <button id="like" class="btn"><img class="like" src="/img/fullheart.jpg"></button>
+                            <%}%>
+                </form>
+                <div class="container1">
+                    <h3 class="description">Unit Description</h3>
+                    <div class="shape">.</div>
+                    <p class="content">
+                        <%= Propirty.details %>
+                    </p>
+
+                </div>
+</body>
+<%- include("../partials/footer") %>
+
+</html>

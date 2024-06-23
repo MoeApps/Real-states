@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Edit user</title>
+    <link rel="stylesheet" type="text/css" href="/css/editprofilecss.css">
+</head>
+
+<body>
+    <%- include("../partials/localization") %>
+        <center>
+            <div class="Box">
+                <form action="/user/edit/<%=profile.id%>" method="post" enctype="multipart/form-data">
+                    <img class="Profile" src="/img/<%=profile.photo%>">
+                    <input type="file" name="img" id="file">
+                    <label class="photo" for="file"><img class="pen" src="/img/pencil.png"></label>
+                    <div class="input">
+                        <input type="text" name="first" value="<%=profile.firstname%>" placeholder="First Name">
+                    </div>
+                    <div class="input">
+                        <input type="text" name="last" value="<%=profile.lastname%>" placeholder="Last Name">
+                    </div>
+                    <div class="input">
+                        <input type="text" name="username" value="<%=profile.username%>" placeholder="username">
+                    </div>
+                    <div class="input">
+                        <input type="email" name="email" value="<%=profile.email%>" placeholder="Email">
+                    </div>
+                    <div class="input">
+                        <input type="date" name="date" value="<%=profile.birthdate%>" placeholder="Date of birth">
+                    </div>
+                    <div>
+                        <label>Gender</label><br>
+                        <input type="radio" name="gender" value="male"> Male
+                        <input type="radio" name="gender" value="female"> Female
+                    </div>
+                    <a href="#"> Change password </a>
+                    <br>
+                    <button type="submit"> Done</button>
+                </form>
+            </div>
+        </center>
+</body>
+
+</html>

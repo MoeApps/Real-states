@@ -1,0 +1,165 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: gray;
+}
+
+.container1 {
+    background-color: white;
+    margin: 40px;
+    box-shadow: 4px;
+    border-radius: 7px;
+
+}
+
+.title {
+    height: 100px;
+    padding: 10px;
+    width: 100%;
+
+}
+
+i {
+    color: blue;
+}
+
+.name {
+    padding: 10px;
+    width: 50%;
+
+}
+
+.price {
+    font-size: 20px;
+    float: right;
+    padding: 10px;
+    width: 35%;
+    color: #0085bb;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: right;
+    line-height: 1.4;
+    margin-top: -6%;
+}
+
+hr {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.featured {
+    margin: 10px;
+    background-color: #f36c42 !important;
+    width: 6%;
+    padding: 3px;
+    color: white;
+    border-radius: 3px;
+    padding-left: 1%;
+}
+
+.sale {
+    margin: 10px;
+    background-color: #00B7F1;
+    width: 4%;
+    color: white;
+    border-radius: 3px;
+    padding: 3px;
+    margin-left: 8%;
+    margin-top: -2.9%;
+    padding-left: 1%;
+}
+
+.type {
+    float: right;
+    margin-right: 30px;
+    margin-top: -3%;
+}
+
+.details {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 10%);
+    line-height: 1.1;
+    background: #48a0dc;
+    color: white;
+    font-size: 22px;
+    font-weight: 300;
+    height: 80px;
+
+}
+
+.details tr td {
+    padding-left: 80px;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.shape {
+    background-image: url(https://bluerock-eg.com/vendor/css/imgweb/header_line_en.webp);
+    background-repeat: no-repeat;
+    margin-left: 1%;
+}
+
+.content {
+    margin-top: 1%;
+    margin-left: 1%;
+    line-height: 1.8;
+    margin-bottom: 27px;
+    font-size: 18px;
+}
+
+.top-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 10px;
+    color: #fff;
+}
+
+.menu-item {
+    flex: 1;
+    text-align: center;
+}
+
+.menu-item a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+.mySlides{
+    height: 650px;
+}
+.btn{
+    background: transparent;
+    border: none;
+    font-size: 88px;
+    outline: none;
+    display: flex;
+    float: right;
+    margin-top: -2%;
+    margin-right: 4%;
+}
+.like{
+    width: 50px;
+    height: 50px;
+}
