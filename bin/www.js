@@ -21,7 +21,7 @@ const PORT = process.env.PORT || "8000";
 const HOST = process.env.HOST || "localhost";
 
 // Get MongoDB connection URI from environment variable 
-const MURI = "mongodb+srv://marwan2106369:Kenzie2210@realestates.nzgztco.mongodb.net/realestates?retryWrites=true&w=majority&appName=realestates";
+const MURI = process.env.ATLAS_URI;
 
 // Create HTTP server.
 const server = createServer(app);
