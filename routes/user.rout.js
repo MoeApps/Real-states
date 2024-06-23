@@ -50,3 +50,30 @@ router.get('/propirty', (req, res) => {
     console.log(err);
   });
 });
+router.get('/distrect',(req,res)=>{
+    res.render('pages/distrect',{ user: (req.session.user === undefined ? "" : req.session.user)});
+  })
+  router.get('/logout',(req,res,next)=>{
+    console.log(req.session.user);
+    req.session.destroy();
+    res.redirect('/');
+  });
+  router.get('/homesearch',Search);
+  router.post('/signup-action', validation, signup);
+  router.post('/edit/:id',validation,edit);
+  router.post('/login-action', login);
+  router.post('/send-message/:id',sendMes);
+  router.post('/addtowishlist/:id',addwishlist);
+  router.get('/search',navsearch);
+  router.post('/checkUN',checkUN);
+  router.post('/checkEmail', checkEmail);
+  //router.get('/propirty/:id',messages,viewproperty);
+  router.get('/getMessages',messages);
+  router.get('/propirty/:id',viewproperty);
+  router.get('/:id',profilewishlist);
+  router.get('/edituser/:id',getuser);
+  router.post('/contact',addContactUsMsg);
+  
+  
+  export default router;
+  
