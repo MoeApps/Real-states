@@ -41,3 +41,27 @@ const deleteprop=async (req,res,next)=>{
         console.log(err);
       });
   }
+
+
+  const profilewishlist= (req, res,next) => {
+    var query = { "_id": req.params.id };
+    const arr=[];
+    User.find(query)
+      .then(result1 => {
+    wishlist.find({"userid":req.params.id}).then(async result=>{
+    console.log(result);
+    if(result.length>0){
+    for(var i=0;i<result.length;i++){
+      const prop=await Propirty.findOne({"_id":result[i].propertyid})
+        arr[i]=prop;
+      }
+    }
+     res.render('pages/profile', { User: result1[0], wish : arr , user: (req.session.user === undefined ? "" : req.session.user)});
+  }).catch(err1 => {
+    console.log(err1);
+  });
+  })
+      .catch(err => {
+        console.log(err);
+      });
+  };
