@@ -25,3 +25,12 @@ const contactus = new mongoose.Schema(
         required:false
       }
   },
+  { timestamps: true }
+  //createdat,updatedat prop. of type date in mongoose
+)
+
+const Contactus = mongoose.model("Contactus", contactus);
+
+export default Contactus;
+
+
