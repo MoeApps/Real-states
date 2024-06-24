@@ -179,3 +179,64 @@ const checkUN = async (req, res) => {
             console.log(err);
         });
   }
+  const edit=async (req, res, next) => {
+    try{
+      const userr = await User.findOne({ "_id": req.params.id });
+      let vall=userr.photo;
+      let existingemail,existingUser;
+      if(userr.email!==req.body.email)
+      {
+        existingemail = await User.findOne({ email: req.body.email });
+      }
+      if(userr.username!==req.body.username)
+      {
+        existingUser = await User.findOne({ username: req.body.username });
+      }
+      if (existingemail) {
+        console.log("Email already exists");
+        res.send("Email already exists");
+      }else if(existingUser){
+        console.log("username already exists");
+        res.send("username already exists");
+      } else {
+        let imgFile;
+    let uploadPath;
+    if (req.files !== null){
+    if ( Object.keys(req.files).length !== 0) {
+      imgFile = req.files.img;
+  
+      uploadPath = './public/img/' + req.body.username + '.jpg';
+      // Use the mv() method to place the file somewhere on your server
+      imgFile.mv(uploadPath, function (err) {
+        if (err)
+          return res.status(500).send(err);
+        });
+        vall=req.body.username +".jpg";
+    }
+  }
+      User.findByIdAndUpdate(req.params.id, { 
+        username: req.body.username,
+        firstname:req.body.first,
+        lastname:req.body.last,
+        email:req.body.email,
+        birthdate:req.body.date,
+        gender:req.body.gender,
+        photo:vall,
+       }).then(result => {
+        console.log(req.session.user.type);
+        if(req.session.user.type=="admin")
+        {
+          res.redirect('/admin/viewusers')
+        }else{
+        res.redirect('/')
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    });
+      }
+    } catch (error) {
+      console.log(error);
+      res.send("An error occurred");
+    }
+  }
