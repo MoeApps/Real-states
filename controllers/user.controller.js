@@ -240,3 +240,9 @@ const checkUN = async (req, res) => {
       res.send("An error occurred");
     }
   }
+  export {
+    signup,
+    validation,
+    //logvalidation,
+    login,
+    getalluser,
