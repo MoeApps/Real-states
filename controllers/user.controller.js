@@ -98,3 +98,26 @@ const signup = async (req, res) => {
   //   body("logpassword").notEmpty().withMessage("password is required"),
   
   // ];
+  const login = async (req, res, next) => {
+ 
+    const existinguser = await User.findOne({ username: req.body.logusername });
+    if(existinguser){
+      const hashePassword =await bcrypt.compare(req.body.logpassword, existinguser.password);
+      if(hashePassword){
+        req.session.user=existinguser;
+        if(req.session.user.type=='admin'){
+         res.redirect('/admin');
+        }else{
+        console.log("User loged in successfully");
+        res.redirect('/');
+        }
+      }else{
+        console.log("password is not correct");
+        res.send("password is not correct");
+      }
+    }else{
+      console.log("username does not exists");
+       res.send("username does not exists");
+    }
+  
+  };
