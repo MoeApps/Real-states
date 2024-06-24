@@ -89,3 +89,41 @@ const sendMsgFromAdmin=async function(req, res, next) {
     });
   
     };
+    
+
+  const chats=function (req, res, next) {
+    const query={"receiver":req.session.user._id};
+    Message.find(query).then(async result => {
+      console.log(result);
+      const usersChats = [];
+      for(let i=0;i<result.length;i++){
+        usersChats.push(result[i].sender);
+      }
+      console.log(usersChats)
+      const usersChatsUnique = [];
+      usersChats.forEach(element => {
+        if (!usersChatsUnique.includes(element)) {
+          usersChatsUnique.push(element);
+        }
+    });
+    console.log(usersChatsUnique)
+    const Users = [];
+
+    for(let i=0;i<usersChatsUnique.length;i++){
+      const query1={"_id":usersChatsUnique[i]};
+      const usr=await User.findOne(query1);
+      Users.push(usr);
+    }
+    console.log(Users)
+      res.render('pages/adminChat', { Users: Users, user: (req.session.user === undefined ? "" : req.session.user) });
+    });
+  };
+
+   export {
+    sendMes,
+    messages,
+    getsingleuserchat,
+    sendMsgFromAdmin,
+    chats,
+  };
+//module.exports={sendMes};
