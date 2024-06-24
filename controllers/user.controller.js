@@ -121,3 +121,22 @@ const signup = async (req, res) => {
     }
   
   };
+  const getalluser = async (req, res, next) => {
+    const properties = await Propirty.find().sort({ value: -1 }).limit(5);
+    User.find().then(result => {
+      res.render('pages/adminHeader', { Users: result,Propirty :properties,user: (req.session.user === undefined ? "" : req.session.user) });
+    }).catch(err => {
+      console.log(err);
+    });
+  
+  }
+  const getallusers = async (req, res, next) => {
+  
+    User.find().then(result => {
+    console.log(result);
+      res.render('pages/adminUser', { Users: result ,user: (req.session.user === undefined ? "" : req.session.user)});
+  }).catch(err => {
+      console.log(err);
+    });
+  
+  }
