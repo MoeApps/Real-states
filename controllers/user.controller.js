@@ -248,3 +248,5 @@ const checkUN = async (req, res) => {
     getalluser,
     getallusers,
     checkUN,
+    checkEmail,
+    getuser,
