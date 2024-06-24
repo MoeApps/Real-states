@@ -25,3 +25,19 @@ const validation = [
   body("u_path").notEmpty().withMessage("Username is required"),
   body("img").notEmpty().withMessage("Username is required"),
 ];
+const deleteprop=async (req,res,next)=>{
+    const now=await Propirty.findOne({"_id":req.params.id})
+    const bee='./public/img/'+now.Image;
+    Propirty.findByIdAndDelete(req.params.id)
+      .then(result => {
+        fs.unlink(bee, (err) => {
+          if (err) {
+            throw err;
+          }
+          res.redirect('/admin/prop');
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
