@@ -300,3 +300,14 @@ const viewproperty= async (req, res,next) => {
     }
   }
   };
+  const viewprop= async (req,res,next)=>{
+    Propirty.find().then(result=>{
+      res.render('pages/adminUnits',{properties:result,user: (req.session.user === undefined ? "" : req.session.user)})
+    })
+  }
+  const getprop= async (req,res,next)=>{
+    const query={"_id":req.params.id};
+    Propirty.findOne(query).then(result=>{
+  res.render('pages/editpropirty',{prop:result,errors:[],user: (req.session.user === undefined ? "" : req.session.user)})
+    })
+  };
