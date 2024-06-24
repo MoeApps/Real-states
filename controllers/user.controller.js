@@ -250,3 +250,5 @@ const checkUN = async (req, res) => {
     checkUN,
     checkEmail,
     getuser,
+    edit,
+};
