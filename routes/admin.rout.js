@@ -45,3 +45,23 @@ router.get('/adding', function (req, res, next) {
       res.render('pages/AdminUsers', { Users: result, user: (req.session.user === undefined ? "" : req.session.user) });
     });
   });
+
+  router.get('/viewadmins', (req, res) => {
+    const query={"type":'admin'};
+    User.find(query).then(result=>{
+      console.log(result);
+      res.render('pages/admins',{ admins : result ,user: (req.session.user === undefined ? "" : req.session.user) })
+    })
+  });
+  
+  
+  router.post("/makeadmin/:id", makeAdmin);
+  router.post('/makeuser/:id',(req,res,next)=>{
+    User.findByIdAndUpdate(req.params.id, { type: 'client' })
+        .then(result => {
+            res.redirect('/admin/viewadmins');
+        })
+        .catch(err => {
+            console.log(err);
+        });
+  })
