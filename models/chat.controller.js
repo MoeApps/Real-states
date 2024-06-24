@@ -19,3 +19,16 @@ const message = new Message({
  receiver: result.adminid,
 
 });
+
+message.save()  //insert in database
+
+
+  .catch(err => {
+    console.log(err);
+  });
+}) 
+
+.catch(err1 => {
+  console.log(err1);
+});
+   };
