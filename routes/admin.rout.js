@@ -65,3 +65,20 @@ router.get('/adding', function (req, res, next) {
             console.log(err);
         });
   })
+
+  router.get('/getSingleUserChat/:id',getsingleuserchat);
+
+router.post('/sendMsgFromAdmin/:id', sendMsgFromAdmin);
+
+router.get('/chats',chats);
+router.get('/Top',displayPropertiesDescending);
+router.post('/addpropirty', addprop);
+router.post('/editproperty/:id',edit)
+router.get('/prop',viewprop);
+router.get('/viewusers', getallusers);
+
+
+router.get('/viewusers', getallusers);
+
+
+export default router;
