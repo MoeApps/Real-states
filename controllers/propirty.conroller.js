@@ -269,3 +269,34 @@ const viewproperty= async (req, res,next) => {
       })
       .catch((err) => console.log(err));
   };
+
+  const addwishlist = async (req, res, next) => {
+    if(req.session.user===undefined)
+    {
+      res.redirect("/");
+    }else{
+    const exsistingwishlist = await wishlist.findOne({
+      userid: req.session.user._id,
+      propertyid: req.params.id,
+    });
+    var found;
+    if (exsistingwishlist) {
+      wishlist.findByIdAndDelete(exsistingwishlist._id).then(result=>{
+        res.redirect("/");
+      }).catch((err) => console.log(err));
+      
+    } else {
+      const wish = new wishlist({
+        userid: req.session.user._id,
+        propertyid: req.params.id,
+      });
+      console.log(wish);
+      wish
+        .save()
+        .then((result) => {
+          res.redirect("/");
+        })
+        .catch((err) => console.log(err));
+    }
+  }
+  };
