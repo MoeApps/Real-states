@@ -138,3 +138,134 @@ const viewproperty= async (req, res,next) => {
       res.status(500).send('Server Error');
     }
   }; 
+
+  const addprop = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.render("pages/addpropirty", {
+        title: "Signup page - Validation Failed",
+        errors: errors.array(),
+      });
+      return;
+    }
+    let imgFile;
+    let uploadPath;
+    console.log(req.files);
+    if (!req.files || Object.keys(req.files).length === 0) {
+      return res.status(400).send("No files were uploaded.");
+    }
+    imgFile = req.files.img;
+  
+    uploadPath = "./public/img/" + req.body.name + ".jpg";
+    // Use the mv() method to place the file somewhere on your server
+    imgFile.mv(uploadPath, function (err) {
+      if (err) return res.status(500).send(err);
+  
+      console.log(req.body);
+      const propirty = new Propirty({
+        name: req.body.name,
+        mobilenumber: req.body.mobile_number,
+        mobilenumber2: req.body.other_number,
+        email: req.body.name,
+        servicetype: req.body.servise,
+        unittype: req.body.type,
+        district: req.body.district,
+        garages: req.body.garage,
+        area: req.body.area,
+        value: req.body.value,
+        unumber: req.body.u_nom,
+        bathrooms: req.body.u_path,
+        bedrooms: req.body.u_bed,
+        furniture: req.body.f_type,
+        details: req.body.details,
+        Image: req.body.name + ".jpg",
+        adminid: req.session.user._id,
+      });
+      propirty
+        .save()
+        .then((result) => {
+          console.log("unit added succesfully");
+          res.redirect("/admin");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
+  const Search = async (req, res, next) => {
+    console.log(req.body);
+    const { Status, Type, Area, Price, Bedrooms, Bathrooms, Parks } = req.body;
+    // price
+  
+    const query = {};
+  
+    if (Status) query.servicetype = Status;
+    if (Type) query.unittype = Type;
+    if (Area) query.area = Area;
+    if (Price) {
+      const price = parseInt(Price);
+      query.value = {
+        $lte: price === 1 ? 100000000 : price === 2 ? 1000000 : 500000,
+      };
+    }
+    if (Bedrooms) {
+      const bedrooms = parseInt(Bedrooms);
+      if (bedrooms === 1) query.bedrooms = 1;
+      else query.bedrooms = { $gte: 2 };
+    }
+    if (Bathrooms) {
+      const bathrooms = parseInt(Bathrooms);
+      if (bathrooms === 1) query.bathrooms = 1;
+      else query.bathrooms = { $gte: 2 };
+    }
+    if (Parks) {
+      const parks = parseInt(Parks);
+      if (parks === 1) query.parks = 1;
+      else query.parks = { $gte: 2 };
+    }
+  
+    Propirty.find(query)
+      .then((result) => {
+        let k=result.length%6;
+        if(k>0){
+        var c=(parseInt(result.length/6))+1;
+        }else{
+          var c=(parseInt(result.length/6));
+        }
+      var h=0;
+      res.render('pages/All', { Propirty: result,count:c,currentValue:h,  user: (req.session.user === undefined ? "" : req.session.user)});
+      })
+      .catch((err) => console.log(err));
+  };
+  
+  //navsearch
+  const navsearch = async (req, res, next) => {
+    const { searchtext } = req.query;
+    console.log(searchtext);
+    const regex = new RegExp(`.*${(searchtext || "").toLowerCase()}.*`, "ig");
+    console.log(regex);
+    const query = {
+      $or: [
+        { type: regex },
+        { name: regex },
+        { servicetype: regex },
+        { unittype: regex },
+        { district: regex },
+        { area: regex },
+        { furniture: regex },
+        { details: regex },
+      ],
+    };
+    Propirty.find(query)
+      .then((result) => {
+        let k=result.length%6;
+      if(k>0){
+      var c=(parseInt(result.length/6))+1;
+      }else{
+        var c=(parseInt(result.length/6));
+      }
+      var h=0;
+      res.render('pages/All', { Propirty: result,count:c,currentValue:h,  user: (req.session.user === undefined ? "" : req.session.user)});
+      })
+      .catch((err) => console.log(err));
+  };
