@@ -246,3 +246,5 @@ const checkUN = async (req, res) => {
     //logvalidation,
     login,
     getalluser,
+    getallusers,
+    checkUN,
