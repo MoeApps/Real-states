@@ -140,3 +140,42 @@ const signup = async (req, res) => {
     });
   
   }
+  //ajax
+const checkUN = async (req, res) => {
+    var query = { username: req.body.username };
+    User.find(query)
+        .then(result => {
+            if (result.length > 0) {
+                res.send(' taken');
+            }
+            else {
+                res.send(' available');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+  };
+  const checkEmail = async (req, res) => {
+    var query = { email: req.body.email };
+    User.find(query)
+        .then(result => {
+            if (result.length > 0) {
+                res.send('taken');
+            }
+            else {
+                res.send('available');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+  };
+  const getuser=async (req, res, next) => {
+    const query={"_id":req.params.id};
+    User.findOne(query).then(result=>{
+  res.render('pages/edituser',{errors: [],profile:result,user: (req.session.user === undefined ? "" : req.session.user)});
+    }) .catch(err => {
+            console.log(err);
+        });
+  }
