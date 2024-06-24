@@ -65,3 +65,16 @@ const deleteprop=async (req,res,next)=>{
         console.log(err);
       });
   };
+
+  const getTopSalesProperties = async (req, res) => {
+    const Property = require('/models/propirty.model');
+    try {
+      
+      const properties = await Property.find().sort({ value: -1 }).limit(5);
+  
+      res.render('admin-dashboard', { properties });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Server Error');
+    }
+  };
